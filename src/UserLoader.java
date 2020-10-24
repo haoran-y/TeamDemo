@@ -24,7 +24,6 @@ public class UserLoader extends UserConstant{
                     String name = (String) personJSON.get(USER_USERNAME);
                     String password = (String) personJSON.get(USER_PASSWORD);
                     boolean isManager = (boolean) personJSON.get(USER_IS_MANAGER);
-
                     userList.add(new User(name, password, isManager));
                 }
             }
