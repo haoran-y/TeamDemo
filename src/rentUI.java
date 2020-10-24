@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class rentUI {
-private static final String WelcomeMessage="Welcome to rent system";
+private static final String WelcomeMessage="Welcome to the rent system for off campus housing!";
 private String[] options= {"Login","Register","Search House","Logout"};
 private String[] searchFilter= {"bedroom number","pet friendly","washer and dryer",
 		"furnished","walk to campus","free wifi","swimming pool","finished filting"};
@@ -10,7 +10,6 @@ rentUI(){
 	scanner = new Scanner(System.in);
 }
 public void run() {
-	
 	
 	while(true) {
 		
@@ -36,11 +35,9 @@ public void run() {
 		
 	}
 	
-	
-	
-	
 }
 private void displayMainMenu() {
+	System.out.println(WelcomeMessage);
 	System.out.println("\n************ Main Menu *************");
 	for(int i=0; i< options.length; i++) {
 		System.out.println((i+1) + ". " + options[i]);
@@ -57,9 +54,27 @@ private int getUserCommand(int numCommands) {
 	
 	return -1;
 }
-private void Login() {
+
+private boolean Login() {
+	String userInfo[]= new String[1];
+	System.out.println("Enter username: ");
+	userInfo[0] = scanner.nextLine();
+	System.out.println("Enter password: ");
+	PasswordInfo myPasswordInfo = new PasswordInfo();
+	myPasswordInfo.PasswordNeeds();
+	if ((myPasswordInfo.length() >= 8) &&
+	        (myPasswordInfo.matches(".*[a-z]+.*")) &&
+	        (myPasswordInfo.matches(".*[0-9]+.*")) ){
+		return true;
+	}
+	else {
+		System.out.println("Password does not match requirments. Retry");
+	}
+	return false;
 	
-}
+
+	    }
+
 
 private void Register() {
 	String userInfo[]= new String[3];
