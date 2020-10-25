@@ -66,7 +66,7 @@ public class rentUI {
 	}
 
 	private void Login() {
-		String userInfo[] = new String[1];
+		String userInfo[] = new String[2];
 		System.out.println("Enter username: ");
 		userInfo[0] = scanner.nextLine();
 		System.out.println("Enter password: ");
@@ -96,10 +96,10 @@ public class rentUI {
 				break;
 			}
 		}
-		System.out.println("Success!");
 		userInfo[1] = password;
 		System.out.println("are you a property manager?(y for yes and n for no)");
 		boolean isPropertyManager;
+		userInfo[2] = scanner.nextLine();
 		if (userInfo[2].toLowerCase().equals("y"))
 			isPropertyManager = true;
 		else

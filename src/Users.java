@@ -22,6 +22,7 @@ public class Users {
 
 	public void addUser(User user) {
 		userList.add(user);
+		UserWriter.saveUser();
 	}
 
 	public User check(String username, String password) {
