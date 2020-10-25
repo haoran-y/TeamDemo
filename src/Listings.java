@@ -9,7 +9,7 @@ public class Listings {
 
     }
 
-    public Listings getInstance() {
+    public static Listings getInstance() {
         if (listings == null) {
             listings = new Listings();
         }

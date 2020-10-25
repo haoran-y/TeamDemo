@@ -20,13 +20,28 @@ public class Users {
 		return userList;
 	}
 
-	public void addUser(String name, String password, boolean isManager) {
-		userList.add(new User(name, password, isManager));
-		UserWriter.saveUser();
+	public void addUser(User user) {
+		userList.add(user);
 	}
 
-	public static ArrayList<User> getUserList() {
-		return userList;
+	public User check(String username, String password) {
+		for (User i : userList) {
+			if (i.getName().equals(username)) {
+				if (i.getPassword().equals(password)) {
+					return i;
+				}
+			}
+		}
+		return null;
+	}
+
+	public User getUser(String username) {
+		for (User i : userList) {
+			if (i.getName().equals(username)) {
+				return i;
+			}
+		}
+		return null;
 	}
 
 	@Override

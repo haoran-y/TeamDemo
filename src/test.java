@@ -5,8 +5,10 @@ import java.io.FileReader;
 public class test {
 
     public static void main(String[] args) throws FileNotFoundException {
-        Users test = Users.getInstance();
-        test.addUser("three", "3", true);
-        System.out.println(test.toString());
+        PasswordInfo p = new PasswordInfo();
+        p.match("JOHN1997");
+        p.match("fdsfasdfsda");
+        p.match("abc123");
+        p.match("31432433124");
     }
 }

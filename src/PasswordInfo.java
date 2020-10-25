@@ -1,20 +1,12 @@
 
-public class PasswordInfo implements Password{
-	public void PasswordNeeds() {
-		System.out.println("Your password must have a minimum of 8 characters\n"
-                + "Your password must contain at least one letter and one digit: ");	
-		
-	}
-
-	public int length() {
-		
-		
-		return 0;
-	}
-
-	public boolean matches(String string) {
-		
-		
-		return false;
+public class PasswordInfo {
+	public boolean match(String password) {
+		if (password.length() >= 8 && password.toLowerCase().matches(".*[a-z].*")
+				&& password.matches(".*\\d.*")) {
+			return true;
+		} else {
+			System.out.println("Password not valid. Please enter again!");
+			return false;
+		}
 	}
 }
