@@ -1,4 +1,3 @@
-package CSCE247Porject;
 public class Listing {
 
     private String name;

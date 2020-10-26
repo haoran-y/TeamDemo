@@ -1,4 +1,3 @@
-package CSCE247Porject;
 import java.util.Scanner;
 
 public class rentUI {
@@ -8,13 +7,13 @@ public class rentUI {
 	private String[] searchFilter = {"bedroom number", "pet friendly", "washer and dryer",
 			"furnished", "walk to campus", "free wifi", "swimming pool", "finished filting"};
 	private Scanner scanner;
-	private Users2 users;
+	private Users users;
 	private Listings listings;
 	private User user;
 
 	rentUI() {
 		scanner = new Scanner(System.in);
-		users = Users2.getInstance();
+		users = Users.getInstance();
 		listings = Listings.getInstance();
 		user = null;
 	}
