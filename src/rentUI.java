@@ -1,3 +1,4 @@
+package CSCE247Porject;
 import java.util.Scanner;
 
 public class rentUI {
@@ -7,13 +8,13 @@ public class rentUI {
 	private String[] searchFilter = {"bedroom number", "pet friendly", "washer and dryer",
 			"furnished", "walk to campus", "free wifi", "swimming pool", "finished filting"};
 	private Scanner scanner;
-	private Users users;
+	private Users2 users;
 	private Listings listings;
 	private User user;
 
 	rentUI() {
 		scanner = new Scanner(System.in);
-		users = Users.getInstance();
+		users = Users2.getInstance();
 		listings = Listings.getInstance();
 		user = null;
 	}
@@ -83,7 +84,7 @@ public class rentUI {
 
 	private void Register() {
 		String userInfo[] = new String[3];
-		System.out.println("Enter your name");
+		System.out.println("Enter your name:");
 		userInfo[0] = scanner.nextLine();
 		System.out.println("Enter password: ");
 		System.out.println("Your password must have a minimum of 8 characters\n"
