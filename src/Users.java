@@ -36,15 +36,6 @@ public class Users {
 		return null;
 	}
 
-	public User getUser(String username) {
-		for (User i : userList) {
-			if (i.getName().equals(username)) {
-				return i;
-			}
-		}
-		return null;
-	}
-
 	@Override
 	public String toString() {
 		String output = "";

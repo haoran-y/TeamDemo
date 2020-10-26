@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;;
+import org.json.simple.parser.JSONParser;
 
 public class UserLoader extends UserConstant{
 
@@ -13,9 +13,7 @@ public class UserLoader extends UserConstant{
         try {
             FileReader reader = new FileReader(new File(USER_FILE_NAME));
             JSONParser parser = new JSONParser();
-
             JSONArray userJSON = (JSONArray) parser.parse(reader);
-
 
             if (userJSON.size() >= 1) {
 

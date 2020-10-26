@@ -7,14 +7,13 @@ import org.json.simple.JSONObject;
 
 public class UserWriter extends UserConstant {
 
-
     public static void saveUser() {
         Users users = Users.getInstance();
         ArrayList<User> userList = users.getUser();
         JSONArray jsonUsers = new JSONArray();
 
         //creating all the json objects
-        for(int i=0; i< userList.size(); i++) {
+        for(int i = 0; i < userList.size(); i++) {
             jsonUsers.add(getUserJSON(userList.get(i)));
         }
 

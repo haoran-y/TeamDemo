@@ -6,22 +6,13 @@ import java.util.List;
 public class Listings{
 
 
-	private static String address;
-	private static final String PROPERTY_ADDRESS = address;
-	private static final String ZIP = null;
-	private static final String RENT = null;
-	private static final String Signatures = null;
-	private static final String Landlord = null;
+
 	private static Listings listings;
-    static int numBedroom, numBathroom, numAvail;
-	static String name;
-	static boolean walkToCampus, hasWasherDryer, hasWifi, hasPool, hasGym, isPetFriendly, isFurnished;
-	static double price;
 	 
     private static ArrayList<Listing> listingList = new ArrayList<Listing>();
 	
     private Listings() {
-
+    	listingList = ListingLoader.loadListings();
     }
 
     public static Listings getInstance() {
@@ -38,6 +29,10 @@ public class Listings{
     public void addListing() {
         //look at listing class on how to add a listing
     }
+
+    public ArrayList<Listing> getListings() {
+    	return listingList;
+	}
 
     
     /*
@@ -90,66 +85,9 @@ public class Listings{
             System.out.println("Index of the searched key: "+index);
         }
     }
-     
-    class Comp implements Comparator<users>{
-     
-        public int compare(users e1, users e2) {
-            if(e1.getusersId() == e2.getusersId()){
-                return 0;
-            } else {
-                return -1;
-            }
-        }
-    }
-     
-    class users {
-         
-        private int usersId;
-        private String usersName;
-        private int usersSal;
-         
-        public users(int id, String name, int sal){
-            this.usersId = id;
-            this.usersName = name;
-            this.usersSal = sal;
-        }
-         
-        public int getusersId() {
-            return usersId;
-        }
-         
-        public void setusersId(int usersId) {
-            this.usersId = usersId;
-        }
-         
-        public String getusersName() {
-            return usersName;
-        }
-         
-        public void setusersName(String usersName) {
-            this.usersName = usersName;
-        }
-         
-        public int getusersSal() {
-            return usersSal;
-        }
-        public void setusersSal(int usersSal) {
-            this.usersSal = usersSal;
-        }
-         
-        public String toString(){
-            return usersId+" : "+usersName+" : "+usersSal;
-        }
-    }
-    
-    
-    
-    
-    
-    
     
 
-    public void sign() {
+    public void sign(Listing selected) {
     	
 		String DAMAGE_COST = "$150";
 		System.out.println("This Lease Agreement is made and entered on <DATE> by and between <LANDLOARD> and <TENANT(s)>.\n" + 
@@ -158,11 +96,13 @@ public class Listings{
     			"\n" + 
     			"1. Landloard Tenant Act. This Rental Agreement is governed by the South Carolina Residential Landlord and Tenant Act.\n" + 
     			"\n" + 
-    			"2. Property. Landloard, in consideration of the lease payments provided in this agreement, leases to Tenant a house with "+numBedroom+" bedrooms and "+numBathroom+" bathrooms, located at "+PROPERTY_ADDRESS+", South Carolina "+ZIP+". No other portion of the building wherein the Property is located is included unless expressly provided for in this agreement.\n" + 
+    			"2. Property. Landloard, in consideration of the lease payments provided in this agreement, leases to Tenant a house with "+
+                selected.getNumBedroom() +" bedrooms and "+ selected.getNumBathroom() +" bathrooms, located at "
+                + selected.getAddress() +", South Carolina "+ selected.getZIP() +". No other portion of the building wherein the Property is located is included unless expressly provided for in this agreement.\n" +
     			"\n" + 
     			"3. Term. The Tenant will coninue to pay rent from 8/1/21 to 8/1/22.\n" + 
     			"\n" + 
-    			"4. Rent. The Tenant will pay "+RENT+" each month on the first of the month.\n" + 
+    			"4. Rent. The Tenant will pay "+ selected.getPrice() +" each month on the first of the month.\n" +
     			"\n" + 
     			"5. Payment should be sent to:100 Bloosom Street, Columbia SC\n" + 
     			"\n" + 
@@ -171,7 +111,7 @@ public class Listings{
     			"7. Signatures\n" + 
     			"\n" + 
     			"\n" + 
-    			"-------"+Signatures+"-------\n" + 
+    			"--------------\n" +
     			"<TENANT 1>\n" + 
     			"\n" + 
     			"\n" + 
@@ -182,7 +122,7 @@ public class Listings{
     			"\n" + 
     			"\n" + 
     			"\n" + 
-    			"-------"+Landlord+"-------\n" + 
+    			"--------------\n" +
     			"<LANDLOARD>\n");
         //signing agreement
         //remember to check the numAvail in Listing 

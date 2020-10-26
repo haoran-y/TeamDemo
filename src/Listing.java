@@ -12,6 +12,8 @@ public class Listing {
     private boolean isPetFriendly;
     private boolean isFurnished;
     private double price;
+    private String address;
+    private String ZIP;
 
     /**
      * object needed to be created with basic information like name, bedroom, bathroom and price
@@ -24,12 +26,15 @@ public class Listing {
      * @param numAvail
      * @param price
      */
-    public Listing(String name, int numBedroom, int numBathroom, int numAvail, double price) {
+    public Listing(String name, String address, String ZIP,
+                   int numBedroom, int numBathroom, int numAvail, double price) {
         this.name = name;
         this.numBedroom = numBedroom;
         this.numBathroom = numBathroom;
         this.numAvail = numAvail;
         this.price = price;
+        this.address = address;
+        this.ZIP = ZIP;
         walkToCampus = false;
         hasWasherDryer = false;
         hasGym = false;
@@ -133,5 +138,21 @@ public class Listing {
 
     public void setWalkToCampus(boolean walkToCampus) {
         this.walkToCampus = walkToCampus;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getZIP() {
+        return ZIP;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setZIP(String ZIP) {
+        this.ZIP = ZIP;
     }
 }
