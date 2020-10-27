@@ -1,3 +1,4 @@
+package CSCE247Porject;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class ListingLoader extends ListingConstant {
                 for (int i = 0; i < listingJson.size(); i++) {
                     JSONObject listingObject = (JSONObject) listingJson.get(i);
                     String name = (String) listingObject.get(LISTING_NAME);
-                    String address = (String) listingObject.get(LISTING_ADDRERSS);
+                    String address = (String) listingObject.get(LISTING_ADDRESS);
                     String ZIP = (String) listingObject.get(LISTING_ZIP);
                     int numBedroom = (int) listingObject.get(LISTING_NUMBEDROOM);
                     int numBathroom = (int) listingObject.get(LISTING_NUMBATHROOM);

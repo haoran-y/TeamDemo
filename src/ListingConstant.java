@@ -1,3 +1,4 @@
+package CSCE247Porject;
 public abstract class ListingConstant {
 
     protected static final String LISTING_FILE_NAME = "data/listing.json";
@@ -13,7 +14,7 @@ public abstract class ListingConstant {
     protected static final String LISTING_ISPETFRIENDLY = "isPetFriendly";
     protected static final String LISTING_ISFURNISHED = "isFurnished";
     protected static final String LISTING_PRICE = "price";
-    protected static final String LISTING_ADDRERSS = "address";
+    protected static final String LISTING_ADDRESS = "address";
     protected static final String LISTING_ZIP = "ZIP";
 
 }

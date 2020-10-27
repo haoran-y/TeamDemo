@@ -1,3 +1,5 @@
+package CSCE247Porject;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -29,7 +31,7 @@ public class ListingWriter extends ListingConstant {
     public static JSONObject getListingJSON(Listing listing) {
         JSONObject listingDetails = new JSONObject();
         listingDetails.put(LISTING_NAME, listing.getName());
-        listingDetails.put(LISTING_ADDRERSS, listing.getAddress());
+        listingDetails.put(LISTING_ADDRESS, listing.getAddress());
         listingDetails.put(LISTING_ZIP, listing.getZIP());
         listingDetails.put(LISTING_PRICE, listing.getPrice());
         listingDetails.put(LISTING_NUMAVAIL, listing.getNumAvail());
