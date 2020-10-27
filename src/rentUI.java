@@ -4,7 +4,7 @@ public class rentUI {
 
 	private static final String WelcomeMessage = "Welcome to the rent system for off campus housing!";
 	private String[] options = {"Login", "Register", "Search House", "Logout"};
-	private String[] searchFilter = {"bedroom number", "pet friendly", "washer and dryer",
+	private String[] searchFilter = {"bedroom number","WashRoom number", "pet friendly", "washer and dryer",
 			"furnished", "walk to campus", "free wifi", "swimming pool", "finished filting"};
 	private Scanner scanner;
 	private Users users;
@@ -113,7 +113,7 @@ public class rentUI {
 	private void SearchHouse() {
 		int filterSetting[] = new int[searchFilter.length];
 		while (true) {
-			if (filterSetting[7] == 1)
+			if (filterSetting[8] == 1)
 				break;
 			System.out.println("\n************Filters *************");
 			for (int i = 0; i < searchFilter.length; i++) {
@@ -122,40 +122,52 @@ public class rentUI {
 			int userCommand = scanner.nextInt();
 			switch (userCommand) {
 				case (1):
-					System.out.println("How many bedrooms would you like?");
+					System.out.println("How many bedrooms would you like?"); //numbers
 					filterSetting[0] = scanner.nextInt();
 					break;
 				case (2):
-					System.out.println("Do you want your apartment pet friendly?(1 for yes and 0 for no)");
+					System.out.println("How many washrooms would you like"); //numbers
 					filterSetting[1] = scanner.nextInt();
 					break;
 				case (3):
-					System.out.println("Do you need washer and dryer?");
+					System.out.println("Do you want your apartment pet friendly?(1 for yes and 0 for no)"); //boolean
 					filterSetting[2] = scanner.nextInt();
 					break;
 				case (4):
-					System.out.println("Do you need your apartment furnished?");
+					System.out.println("Do you need washer and dryer?"); //boolean
 					filterSetting[3] = scanner.nextInt();
 					break;
 				case (5):
-					System.out.println("Do you prefer walk to campus apartment?");
+					System.out.println("Do you need your apartment furnished?"); //boolean
 					filterSetting[4] = scanner.nextInt();
 					break;
 				case (6):
-					System.out.println("Do you need free wifi?");
+					System.out.println("Do you prefer walk to campus apartment?"); //boolean
 					filterSetting[5] = scanner.nextInt();
 					break;
 				case (7):
-					System.out.println("Do you need swimming pool?");
+					System.out.println("Do you need free wifi?"); //boolean
 					filterSetting[6] = scanner.nextInt();
 					break;
 				case (8):
-					filterSetting[7] = 1;
+					System.out.println("Do you need swimming pool?"); //boolean
+					filterSetting[7] = scanner.nextInt();
+					break;
+				case (9):
+					filterSetting[8] = 1;
 					break;
 			}
+
+		}
+		ShowSearchResult(filterSetting);
+	}
+	private void ShowSearchResult(int[] filterSetting){
+		System.out.println("According to your filter, we have found those apartments");
+		for (String apartment:listings.search(filterSetting)
+			 ) {
+			System.out.println(apartment);
 		}
 	}
-
 	private void Logout() {
 		System.out.println("Bye");
 		System.exit(0);

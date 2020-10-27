@@ -35,34 +35,46 @@ public class Listings{
 	}
 
     
-    /*
-    public static ArrayList<String> search() {
+
+    public static ArrayList<String> search(int[] filterSetting) {
+
+    	//about filterSetting
+		//0		bedroom number
+		//1		washroom number
+		//2		pet friendly?(1 or 0)
+		//3		has washer and dryer?(1 or 0)
+		//4		furnished?(1 or 0)
+		//5		can walk to campus?(1 or 0)
+		//6		has free wifi?(1 or 0)
+		//7		has swimming pool?(1 or 0)
+		//8		don't care this one (this place should always be 1)
+    	/*
+
     	ArrayList<String> SearchInfo = new ArrayList<String>();
-    	SearchInfo.add(name);
-    	SearchInfo.add(numBedroom);
-    	SearchInfo.add(numBathroom);
-		SearchInfo.add(numAvail);
-    	SearchInfo.add(walkToCampus);
-    	SearchInfo.add(hasWasherDryer);
-    	SearchInfo.add(hasPool);
-    	SearchInfo.add(hasGym);
-    	SearchInfo.add(hasWifi);
-    	SearchInfo.add(isPetFriendly);
-    	SearchInfo.add(isFurnished);
-    	SearchInfo.add(price);
+    	SearchInfo.add(name);//0
+    	SearchInfo.add(numBedroom);//1
+    	SearchInfo.add(numBathroom);//2
+    	SearchInfo.add(walkToCampus);//3
+    	SearchInfo.add(hasWasherDryer);//4
+    	SearchInfo.add(hasPool);//5
+    	SearchInfo.add(hasGym);//6
+    	SearchInfo.add(hasWifi);//7
+    	SearchInfo.add(isPetFriendly);//8
+    	SearchInfo.add(isFurnished);//9
+    	SearchInfo.add(price);//10
     	
     	
     	for(String i : SearchInfo) {
     		System.out.println(i);
     	}
     	System.out.println("Search: ");
-    	
-    	return SearchInfo;
+    	*/
+    	return null;
     	
     	
     	}
     
-    */
+
         //write search here and call from UI class
         //search can be performed by going through 
     	//the list and mark the ones that fit
