@@ -44,6 +44,20 @@ public class Listing {
         isPetFriendly = false;
     }
 
+    public int[] getSearchFilter (){
+        return new int[] {numBedroom, numBathroom, booleanToInt(isPetFriendly), booleanToInt(hasWasherDryer),
+         booleanToInt(isFurnished), booleanToInt(walkToCampus), booleanToInt(hasWifi), booleanToInt(hasPool),
+                booleanToInt(hasGym)};
+    }
+
+    public int booleanToInt (boolean a) {
+        if (a) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     public void setName(String name) {
         this.name = name;
     }

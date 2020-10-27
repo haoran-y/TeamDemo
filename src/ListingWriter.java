@@ -1,4 +1,4 @@
-package CSCE247Porject;
+//package CSCE247Porject;
 
 import java.io.File;
 import java.io.FileWriter;

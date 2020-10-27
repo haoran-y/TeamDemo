@@ -5,7 +5,7 @@ public class rentUI {
 	private static final String WelcomeMessage = "Welcome to the rent system for off campus housing!";
 	private String[] options = {"Login", "Register", "Search House", "Logout"};
 	private String[] searchFilter = {"bedroom number","WashRoom number", "pet friendly", "washer and dryer",
-			"furnished", "walk to campus", "free wifi", "swimming pool", "finished filting"};
+			"furnished", "walk to campus", "free wifi", "swimming pool", "gym"};
 	private Scanner scanner;
 	private Users users;
 	private Listings listings;
@@ -112,13 +112,13 @@ public class rentUI {
 
 	private void SearchHouse() {
 		int filterSetting[] = new int[searchFilter.length];
+		upperloop:
 		while (true) {
-			if (filterSetting[8] == 1)
-				break;
 			System.out.println("\n************Filters *************");
 			for (int i = 0; i < searchFilter.length; i++) {
 				System.out.println((i + 1) + ". " + searchFilter[i]);
 			}
+			System.out.println("10. Finish filter");
 			int userCommand = scanner.nextInt();
 			switch (userCommand) {
 				case (1):
@@ -154,8 +154,11 @@ public class rentUI {
 					filterSetting[7] = scanner.nextInt();
 					break;
 				case (9):
-					filterSetting[8] = 1;
+					System.out.println("Do you need gym?"); //boolean
+					filterSetting[8] = scanner.nextInt();
 					break;
+				case (10):
+					break upperloop;
 			}
 
 		}
