@@ -27,6 +27,22 @@ public class ListingWriter extends ListingConstant {
     }
 
     public static JSONObject getListingJSON(Listing listing) {
+        JSONObject listingDetails = new JSONObject();
+        listingDetails.put(LISTING_NAME, listing.getName());
+        listingDetails.put(LISTING_ADDRERSS, listing.getAddress());
+        listingDetails.put(LISTING_ZIP, listing.getZIP());
+        listingDetails.put(LISTING_PRICE, listing.getPrice());
+        listingDetails.put(LISTING_NUMAVAIL, listing.getNumAvail());
+        listingDetails.put(LISTING_NUMBATHROOM, listing.getNumBathroom());
+        listingDetails.put(LISTING_NUMBEDROOM, listing.getNumBedroom());
+        listingDetails.put(LISTING_WALK2CAMPUS, listing.isWalkToCampus());
+        listingDetails.put(LISTING_HASGYM, listing.isHasGym());
+        listingDetails.put(LISTING_HASPOOL, listing.isHasPool());
+        listingDetails.put(LISTING_HASWASHERDRYER, listing.isHasWasherDryer());
+        listingDetails.put(LISTING_HASWIFI, listing.isHasWifi());
+        listingDetails.put(LISTING_ISFURNISHED, listing.isFurnished());
+        listingDetails.put(LISTING_ISPETFRIENDLY, listing.isPetFriendly());
 
+        return listingDetails;
     }
 }

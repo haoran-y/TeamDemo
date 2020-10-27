@@ -108,7 +108,6 @@ public class rentUI {
 		User newUser = new User(userInfo[0], userInfo[1], isPropertyManager);
 		users.addUser(newUser);
 		user = newUser;
-
 	}
 
 	private void SearchHouse() {
@@ -155,8 +154,6 @@ public class rentUI {
 					break;
 			}
 		}
-// use filterSetting for searching
-
 	}
 
 	private void Logout() {
