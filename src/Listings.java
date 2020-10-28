@@ -4,10 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Listings{
 
@@ -52,7 +49,7 @@ public class Listings{
 
 		ArrayList<Listing> match = new ArrayList<Listing>();
 		for (Listing i : listingList) {
-			if (i.getSearchFilter().equals(filterSetting)) {
+			if (Arrays.equals(i.getSearchFilter(), filterSetting)) {
 				match.add(i);
 			}
 		}
