@@ -32,13 +32,9 @@ public class Listings{
 
     public void addListing(Listing listing) {
         listingList.add(listing);
+        ListingWriter.saveListing();
     }
 
-    public ArrayList<Listing> getListings() {
-    	return listingList;
-	}
-
-    
 
     public static ArrayList<Listing> search(int[] filterSetting) {
 		//about filterSetting
