@@ -2,6 +2,8 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -126,16 +128,18 @@ public class Listings{
 	*/
     
 
-    public void sign(Listing selected) throws IOException {
+    public void sign(Listing selected, User user) throws IOException {
     	
 		String DAMAGE_COST = "$150";
 		if(selected.getNumAvail() >= 1)
 		{
-			String output = "This Lease Agreement is made and entered on <DATE> by and between <LANDLOARD> and <TENANT(s)>.\n" +
-    			"\n" + 
-    			"Subject to the terms and conditions stated below the parties agree as follows:\n" + 
-    			"\n" + 
-    			"1. Landloard Tenant Act. This Rental Agreement is governed by the South Carolina Residential Landlord and Tenant Act.\n" + 
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
+			LocalDateTime now = LocalDateTime.now();
+			String output = "This Lease Agreement is made and entered on " + dtf.format(now) + " by and between " + selected.getName() + " and " + user.getName() + ".\n" +
+    			"\n" +
+    			"Subject to the terms and conditions stated below the parties agree as follows:\n" +
+    			"\n" +
+    			"1. Landloard Tenant Act. This Rental Agreement is governed by the South Carolina Residential Landlord and Tenant Act.\n" +
     			"\n" + 
     			"2. Property. Landloard, in consideration of the lease payments provided in this agreement, leases to Tenant a house with "+
                 selected.getNumBedroom() +" bedrooms and "+ selected.getNumBathroom() +" bathrooms, located at "
@@ -157,12 +161,12 @@ public class Listings{
     			"\n" + 
     			"\n" + 
     			"\n" + 
-    			"--------------\n" + 
-    			"(TENANT X, this will only appear if applicable)\n" + 
-    			"\n" + 
-    			"\n" + 
-    			"\n" + 
-    			"\n" + 
+    			//"--------------\n" +
+    			//"(TENANT X, this will only appear if applicable)\n" +
+    			//"\n" +
+    			//"\n" +
+    			//"\n" +
+    			//"\n" +
     			"--------------\n" +
     			"<LANDLOARD>\n";
 			String fileName = selected.getName() + "_lease.txt";
