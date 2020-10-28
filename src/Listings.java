@@ -1,3 +1,4 @@
+package CSCE247Porject;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -5,8 +6,8 @@ import java.util.List;
 
 public class Listings{
 
-
-
+	private static Listing listing;
+	private static Users2 users;
 	private static Listings listings;
 	 
     private static ArrayList<Listing> listingList = new ArrayList<Listing>();
@@ -36,7 +37,7 @@ public class Listings{
 
     
 
-    public static ArrayList<String> search(int[] filterSetting) {
+    //public static ArrayList<String> search(int[] filterSetting) {
 
     	//about filterSetting
 		//0		bedroom number
@@ -49,7 +50,6 @@ public class Listings{
 		//7		has swimming pool?(1 or 0)
 		//8		don't care this one (this place should always be 1)
     	/*
-
     	ArrayList<String> SearchInfo = new ArrayList<String>();
     	SearchInfo.add(name);//0
     	SearchInfo.add(numBedroom);//1
@@ -69,10 +69,10 @@ public class Listings{
     	}
     	System.out.println("Search: ");
     	*/
-    	return null;
+    	//return null;
     	
     	
-    	}
+    	
     
 
         //write search here and call from UI class
@@ -81,7 +81,7 @@ public class Listings{
     	//is take parameters , go through the list use 
     	//like a for loop, and put every Listing object that 
     	//fit the parameters, into a arraylist, and return that arraylist at the end
-    class Search {
+   /* class Search {
     	 
         public void main(String a[]){
              
@@ -96,13 +96,31 @@ public class Listings{
             int index = Collections.binarySearch(List, searchKey, new Comp());
             System.out.println("Index of the searched key: "+index);
         }
-    }
+    }*/
+    
+   
+    public static String[] search(int[] filterSetting)
+    {
+    	List<Listing> List = new ArrayList<Listing>();
+		String getSearchFilter[] = new String[2];
+		System.out.println("Search Results:");
+		return getSearchFilter; 
+		//getSearchFilter[0] = scanner.nextLine();
+		//getSearchFilter[1] = scanner.nextLine();
+		//User temp = users.check(getSearchFilter[0], getSearchFilter[1]);
+		//return null;
+		
+	
+	}
     
 
     public void sign(Listing selected) {
     	
 		String DAMAGE_COST = "$150";
-		System.out.println("This Lease Agreement is made and entered on <DATE> by and between <LANDLOARD> and <TENANT(s)>.\n" + 
+		int numAvail = 0;
+		if(numAvail > 1)
+		{
+			System.out.println("This Lease Agreement is made and entered on <DATE> by and between <LANDLOARD> and <TENANT(s)>.\n" + 
     			"\n" + 
     			"Subject to the terms and conditions stated below the parties agree as follows:\n" + 
     			"\n" + 
@@ -136,6 +154,14 @@ public class Listings{
     			"\n" + 
     			"--------------\n" +
     			"<LANDLOARD>\n");
+		}
+		else {
+			System.out.println("No Lease is avaliable.");
+		}
+		
+		//return(fileOperator);
+	
+		//minus -1 numAvail;
         //signing agreement
         //remember to check the numAvail in Listing 
     	//object to see if available and deny if it is not available(numberAvail == 0)
