@@ -166,8 +166,7 @@ public class rentUI {
 	}
 	private void ShowSearchResult(int[] filterSetting){
 		System.out.println("According to your filter, we have found those apartments");
-		for (String apartment:listings.search(filterSetting)
-			 ) {
+		for (Listing apartment:listings.search(filterSetting)) {
 			System.out.println(apartment);
 		}
 	}

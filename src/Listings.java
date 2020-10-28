@@ -1,4 +1,7 @@
-package CSCE247Porject;
+//package CSCE247Porject;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -6,8 +9,8 @@ import java.util.List;
 
 public class Listings{
 
-	private static Listing listing;
-	private static Users2 users;
+	//private static Listing listing;
+	//private static Users users;
 	private static Listings listings;
 	 
     private static ArrayList<Listing> listingList = new ArrayList<Listing>();
@@ -27,8 +30,8 @@ public class Listings{
         return listingList;
     }
 
-    public void addListing() {
-        //look at listing class on how to add a listing
+    public void addListing(Listing listing) {
+        listingList.add(listing);
     }
 
     public ArrayList<Listing> getListings() {
@@ -37,9 +40,8 @@ public class Listings{
 
     
 
-    //public static ArrayList<String> search(int[] filterSetting) {
-
-    	//about filterSetting
+    public static ArrayList<Listing> search(int[] filterSetting) {
+		//about filterSetting
 		//0		bedroom number
 		//1		washroom number
 		//2		pet friendly?(1 or 0)
@@ -48,8 +50,21 @@ public class Listings{
 		//5		can walk to campus?(1 or 0)
 		//6		has free wifi?(1 or 0)
 		//7		has swimming pool?(1 or 0)
-		//8		don't care this one (this place should always be 1)
-    	/*
+		//8		has gym?
+
+		ArrayList<Listing> match = new ArrayList<Listing>();
+		for (Listing i : listingList) {
+			if (i.getSearchFilter().equals(filterSetting)) {
+				match.add(i);
+			}
+		}
+		return match;
+	}
+
+
+
+
+		/*
     	ArrayList<String> SearchInfo = new ArrayList<String>();
     	SearchInfo.add(name);//0
     	SearchInfo.add(numBedroom);//1
@@ -98,7 +113,7 @@ public class Listings{
         }
     }*/
     
-   
+   /**
     public static String[] search(int[] filterSetting)
     {
     	List<Listing> List = new ArrayList<Listing>();
@@ -112,15 +127,15 @@ public class Listings{
 		
 	
 	}
+	*/
     
 
-    public void sign(Listing selected) {
+    public void sign(Listing selected) throws IOException {
     	
 		String DAMAGE_COST = "$150";
-		int numAvail = 0;
-		if(numAvail > 1)
+		if(selected.getNumAvail() >= 1)
 		{
-			System.out.println("This Lease Agreement is made and entered on <DATE> by and between <LANDLOARD> and <TENANT(s)>.\n" + 
+			String output = "This Lease Agreement is made and entered on <DATE> by and between <LANDLOARD> and <TENANT(s)>.\n" +
     			"\n" + 
     			"Subject to the terms and conditions stated below the parties agree as follows:\n" + 
     			"\n" + 
@@ -153,7 +168,13 @@ public class Listings{
     			"\n" + 
     			"\n" + 
     			"--------------\n" +
-    			"<LANDLOARD>\n");
+    			"<LANDLOARD>\n";
+			String fileName = selected.getName() + "_lease.txt";
+			BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+			writer.write(output);
+			writer.close();
+			System.out.println(output);
+			selected.setNumAvail(selected.getNumAvail() - 1);
 		}
 		else {
 			System.out.println("No Lease is avaliable.");
