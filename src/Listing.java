@@ -169,4 +169,11 @@ public class Listing {
     public void setZIP(String ZIP) {
         this.ZIP = ZIP;
     }
+    public String toString(){
+        return "name: "+this.name+" bedroom numbers: "+this.numBedroom+" bathroom numbers: "+this.numBathroom+
+                " number that available"+this.numAvail+" price"+this.price+" address: "+this.address+" ZIP: "+
+                this.ZIP +" walk to campus"+this.walkToCampus +" has washer and dryer: "+this.hasWasherDryer+
+                " has gym: "+this.hasGym+" has pool: "+this.hasPool+" has wifi: "+this.hasWifi+ " furnished: "+
+                this.isFurnished+" pet friendly: "+this.isPetFriendly;
+    }
 }

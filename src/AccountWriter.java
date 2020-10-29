@@ -5,16 +5,16 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class UserWriter extends UserConstant {
+public class AccountWriter extends AccountConstant {
 
     public static void saveUser() {
-        Users users = Users.getInstance();
-        ArrayList<User> userList = users.getUser();
+        Accounts accounts = Accounts.getInstance();
+        ArrayList<Account> accountList = accounts.getUser();
         JSONArray jsonUsers = new JSONArray();
 
         //creating all the json objects
-        for(int i = 0; i < userList.size(); i++) {
-            jsonUsers.add(getUserJSON(userList.get(i)));
+        for(int i = 0; i < accountList.size(); i++) {
+            jsonUsers.add(getUserJSON(accountList.get(i)));
         }
 
         //Write JSON file
@@ -28,11 +28,11 @@ public class UserWriter extends UserConstant {
         }
     }
 
-    public static JSONObject getUserJSON(User user) {
+    public static JSONObject getUserJSON(Account account) {
         JSONObject userDetails = new JSONObject();
-        userDetails.put(USER_USERNAME, user.getName());
-        userDetails.put(USER_PASSWORD, user.getPassword());
-        userDetails.put(USER_IS_MANAGER, user.isPropertyManager());
+        userDetails.put(USER_USERNAME, account.getName());
+        userDetails.put(USER_PASSWORD, account.getPassword());
+        userDetails.put(USER_IS_MANAGER, account.isPropertyManager());
 
         return userDetails;
     }

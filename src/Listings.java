@@ -15,7 +15,7 @@ public class Listings{
     private static ArrayList<Listing> listingList = new ArrayList<Listing>();
 	
     private Listings() {
-    	listingList = ListingLoader.loadListings();
+    	//listingList = ListingLoader.loadListings();
     }
 
     public static Listings getInstance() {
@@ -125,14 +125,14 @@ public class Listings{
 	*/
     
 
-    public void sign(Listing selected, User user) throws IOException {
-    	
+    public static void sign(Listing selected, Account account) throws IOException {
+
 		String DAMAGE_COST = "$150";
 		if(selected.getNumAvail() >= 1)
 		{
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 			LocalDateTime now = LocalDateTime.now();
-			String output = "This Lease Agreement is made and entered on " + dtf.format(now) + " by and between " + selected.getName() + " and " + user.getName() + ".\n" +
+			String output = "This Lease Agreement is made and entered on " + dtf.format(now) + " by and between " + selected.getName() + " and " + account.getName() + ".\n" +
     			"\n" +
     			"Subject to the terms and conditions stated below the parties agree as follows:\n" +
     			"\n" +

@@ -10,6 +10,6 @@ public class test {
         ls.addListing(new Listing("test1", "test address", "29201", 2, 1, 1,
                 1445.90));
         ls.sign(new Listing("test1", "test address", "29201", 2, 1, 1,
-                1445.90));
+                1445.90),null);
     }
 }

@@ -5,10 +5,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-public class UserLoader extends UserConstant{
+public class AccountLoader extends AccountConstant {
 
-    public static ArrayList<User> loadUsers() {
-        ArrayList<User> userList = new ArrayList<User>();
+    public static ArrayList<Account> loadUsers() {
+        ArrayList<Account> accountList = new ArrayList<Account>();
 
         try {
             FileReader reader = new FileReader(new File(USER_FILE_NAME));
@@ -22,11 +22,11 @@ public class UserLoader extends UserConstant{
                     String name = (String) personJSON.get(USER_USERNAME);
                     String password = (String) personJSON.get(USER_PASSWORD);
                     boolean isManager = (boolean) personJSON.get(USER_IS_MANAGER);
-                    userList.add(new User(name, password, isManager));
+                    accountList.add(new Account(name, password, isManager));
                 }
             }
 
-            return userList;
+            return accountList;
 
         } catch (Exception e) {
             e.printStackTrace();

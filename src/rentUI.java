@@ -1,3 +1,5 @@
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class rentUI {
@@ -7,15 +9,15 @@ public class rentUI {
 	private String[] searchFilter = {"bedroom number","WashRoom number", "pet friendly", "washer and dryer",
 			"furnished", "walk to campus", "free wifi", "swimming pool", "gym"};
 	private Scanner scanner;
-	private Users users;
+	private Accounts accounts;
 	private Listings listings;
-	private User user;
+	private Account account;
 
 	rentUI() {
 		scanner = new Scanner(System.in);
-		users = Users.getInstance();
+		accounts = accounts.getInstance();
 		listings = Listings.getInstance();
-		user = null;
+		account = null;
 	}
 
 	public void run() {
@@ -66,14 +68,16 @@ public class rentUI {
 	}
 
 	private void Login() {
+		scanner.nextLine();
 		String userInfo[] = new String[2];
 		System.out.println("Enter username: ");
 		userInfo[0] = scanner.nextLine();
+		scanner.nextLine();
 		System.out.println("Enter password: ");
 		userInfo[1] = scanner.nextLine();
-		User temp = users.check(userInfo[0], userInfo[1]);
+		Account temp = accounts.check(userInfo[0], userInfo[1]);
 		if (temp != null) {
-			user = temp;
+			account = temp;
 			System.out.println("Login success!");
 		} else {
 			System.out.println("Login failed, back to main menu!");
@@ -82,9 +86,11 @@ public class rentUI {
 
 
 	private void Register() {
+		scanner.nextLine();
 		String userInfo[] = new String[3];
 		System.out.println("Enter your name:");
 		userInfo[0] = scanner.nextLine();
+
 		System.out.println("Enter password: ");
 		System.out.println("Your password must have a minimum of 8 characters\n"
 				+ "Your password must contain at least one letter and one digit: ");
@@ -105,9 +111,9 @@ public class rentUI {
 		else
 			isPropertyManager = false;
 		System.out.println("Registration complete");
-		User newUser = new User(userInfo[0], userInfo[1], isPropertyManager);
-		users.addUser(newUser);
-		user = newUser;
+		Account newAccount = new Account(userInfo[0], userInfo[1], isPropertyManager);
+		accounts.addUser(newAccount);
+		account = newAccount;
 	}
 
 	private void SearchHouse() {
@@ -164,11 +170,37 @@ public class rentUI {
 		}
 		ShowSearchResult(filterSetting);
 	}
-	private void ShowSearchResult(int[] filterSetting){
+	private void ShowSearchResult(int[] filterSetting)  {
+		ArrayList<Listing> matchedLists = new ArrayList<Listing>();
+		//matchedLists.add(new Listing("test1", "test address", "29201", 2, 1, 1,1445.90)); //fot test purpose, just ignore it
+		int i = 1;
 		System.out.println("According to your filter, we have found those apartments");
 		for (Listing apartment:listings.search(filterSetting)) {
-			System.out.println(apartment);
+			System.out.println(i+"  "+apartment);
+			matchedLists.add(apartment);
+			i+=1;
 		}
+		//System.out.println(matchedLists.get(0)); // for test purpose, just ignore it
+		System.out.println("Please pick up the one you would like to sign");
+		int pickedNum = scanner.nextInt();
+		if(account == null) {
+			System.out.println("You haven't sign in yet, do you want to sign in or register an account?" +
+					"(press 1 to sign in and 0 to register)");
+			int opCode = scanner.nextInt();
+			switch (opCode){
+				case 0:
+					Register();
+					break;
+				case 1:
+					Login();
+					break;
+			}
+		}
+			try {
+				Listings.sign(matchedLists.get(pickedNum - 1), account);
+			} catch (IOException e) {
+				System.out.println(e);
+			}
 	}
 	private void Logout() {
 		System.out.println("Bye");
@@ -177,6 +209,7 @@ public class rentUI {
 
 	public static void main(String[] args) {
 		rentUI rentUI = new rentUI();
+		//rentUI.ShowSearchResult(null); // use for test, you can ignore it
 		rentUI.run();
 
 	}
