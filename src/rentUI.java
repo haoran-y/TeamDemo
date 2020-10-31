@@ -180,12 +180,23 @@ public class rentUI {
 	private void ShowSearchResult(int[] filterSetting)  {
 		ArrayList<Listing> matchedLists = listings.search(filterSetting);
 		//matchedLists.add(new Listing("test1", "test address", "29201", 2, 1, 1,1445.90)); //fot test purpose, just ignore it
-		int i = 1;
+		int number = 1;
 		System.out.println("According to your filter, we have found those apartments");
 		for (Listing apartment:matchedLists) {
-			System.out.println(i+"  "+apartment);
-			matchedLists.add(apartment);
-			i+=1;
+			System.out.println(number+"  "+apartment.getName());
+			number+=1;
+		}
+		whileloop:
+		while (true) {
+			System.out.println("Choose the one to show detail, 0 to exit.");
+			int selection = scanner.nextInt();
+			if (selection == 0) {
+				break whileloop;
+			} else if (selection - 1 >= matchedLists.size()) {
+				System.out.println("Please enter a valid number.");
+			} else {
+				System.out.println(matchedLists.get(selection - 1));
+			}
 		}
 		//System.out.println(matchedLists.get(0)); // for test purpose, just ignore it
 		System.out.println("Please pick up the one you would like to sign");
