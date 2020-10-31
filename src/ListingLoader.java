@@ -24,9 +24,9 @@ public class ListingLoader extends ListingConstant {
                     String name = (String) listingObject.get(LISTING_NAME);
                     String address = (String) listingObject.get(LISTING_ADDRESS);
                     String ZIP = (String) listingObject.get(LISTING_ZIP);
-                    int numBedroom = (int) listingObject.get(LISTING_NUMBEDROOM);
-                    int numBathroom = (int) listingObject.get(LISTING_NUMBATHROOM);
-                    int numAvail = (int) listingObject.get(LISTING_NUMAVAIL);
+                    int numBedroom = ((Number) listingObject.get(LISTING_NUMBEDROOM)).intValue();
+                    int numBathroom = ((Number) listingObject.get(LISTING_NUMBATHROOM)).intValue();
+                    int numAvail = ((Number) listingObject.get(LISTING_NUMAVAIL)).intValue();
                     double price = (double) listingObject.get(LISTING_PRICE);
                     Listing temp = new Listing(name, address, ZIP, numBedroom, numBathroom,
                             numAvail, price);

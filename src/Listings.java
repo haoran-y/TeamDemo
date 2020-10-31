@@ -1,4 +1,3 @@
-//package CSCE247Porject;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,14 +7,11 @@ import java.util.*;
 
 public class Listings{
 
-	//private static Listing listing;
-	//private static Users users;
 	private static Listings listings;
-	 
     private static ArrayList<Listing> listingList = new ArrayList<Listing>();
 	
     private Listings() {
-    	//listingList = ListingLoader.loadListings();
+    	listingList = ListingLoader.loadListings();
     }
 
     public static Listings getInstance() {
@@ -55,75 +51,6 @@ public class Listings{
 		}
 		return match;
 	}
-
-
-
-
-		/*
-    	ArrayList<String> SearchInfo = new ArrayList<String>();
-    	SearchInfo.add(name);//0
-    	SearchInfo.add(numBedroom);//1
-    	SearchInfo.add(numBathroom);//2
-    	SearchInfo.add(walkToCampus);//3
-    	SearchInfo.add(hasWasherDryer);//4
-    	SearchInfo.add(hasPool);//5
-    	SearchInfo.add(hasGym);//6
-    	SearchInfo.add(hasWifi);//7
-    	SearchInfo.add(isPetFriendly);//8
-    	SearchInfo.add(isFurnished);//9
-    	SearchInfo.add(price);//10
-    	
-    	
-    	for(String i : SearchInfo) {
-    		System.out.println(i);
-    	}
-    	System.out.println("Search: ");
-    	*/
-    	//return null;
-    	
-    	
-    	
-    
-
-        //write search here and call from UI class
-        //search can be performed by going through 
-    	//the list and mark the ones that fit
-    	//is take parameters , go through the list use 
-    	//like a for loop, and put every Listing object that 
-    	//fit the parameters, into a arraylist, and return that arraylist at the end
-   /* class Search {
-    	 
-        public void main(String a[]){
-             
-            List<users> List = new ArrayList<users>();
-            List.add(new users(12,"Dinesh",50000));
-            List.add(new users(146,"Tom",20000));
-            List.add(new users(201,"John",40000));
-            List.add(new users(302,"Krish",44500));
-            List.add(new users(543,"Abdul",10000));
-             
-            users searchKey = new users(201,"John",40000);
-            int index = Collections.binarySearch(List, searchKey, new Comp());
-            System.out.println("Index of the searched key: "+index);
-        }
-    }*/
-    
-   /**
-    public static String[] search(int[] filterSetting)
-    {
-    	List<Listing> List = new ArrayList<Listing>();
-		String getSearchFilter[] = new String[2];
-		System.out.println("Search Results:");
-		return getSearchFilter; 
-		//getSearchFilter[0] = scanner.nextLine();
-		//getSearchFilter[1] = scanner.nextLine();
-		//User temp = users.check(getSearchFilter[0], getSearchFilter[1]);
-		//return null;
-		
-	
-	}
-	*/
-    
 
     public static void sign(Listing selected, Account account) throws IOException {
 
@@ -176,13 +103,5 @@ public class Listings{
 		else {
 			System.out.println("No Lease is avaliable.");
 		}
-		
-		//return(fileOperator);
-	
-		//minus -1 numAvail;
-        //signing agreement
-        //remember to check the numAvail in Listing 
-    	//object to see if available and deny if it is not available(numberAvail == 0)
-        //minus 1 on the numAvail when signed
     }
 }
