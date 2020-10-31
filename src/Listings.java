@@ -69,7 +69,17 @@ public class Listings{
 
 		ArrayList<Listing> match = new ArrayList<Listing>();
 		for (Listing i : listingList) {
-			if (Arrays.equals(i.getSearchFilter(), filterSetting)) {
+			int [] listing = i.getSearchFilter();
+			boolean ifMatch = true;
+			for (int k = 0; k < filterSetting.length; k++) {
+				if (filterSetting[k] != -1) {
+					if (listing[k] != filterSetting[k]) {
+						ifMatch = false;
+						break;
+					}
+				}
+			}
+			if (ifMatch) {
 				match.add(i);
 			}
 		}
