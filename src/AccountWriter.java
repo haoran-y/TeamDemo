@@ -33,7 +33,7 @@ public class AccountWriter extends AccountConstant {
         userDetails.put(USER_USERNAME, account.getName());
         userDetails.put(USER_PASSWORD, account.getPassword());
         userDetails.put(USER_IS_MANAGER, account.isPropertyManager());
-
+        userDetails.put(USER_IS_LIVEWITHUSER, account.isLiveWithOtherUser());
         return userDetails;
     }
 }

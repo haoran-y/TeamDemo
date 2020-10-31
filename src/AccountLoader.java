@@ -22,7 +22,8 @@ public class AccountLoader extends AccountConstant {
                     String name = (String) personJSON.get(USER_USERNAME);
                     String password = (String) personJSON.get(USER_PASSWORD);
                     boolean isManager = (boolean) personJSON.get(USER_IS_MANAGER);
-                    accountList.add(new Account(name, password, isManager));
+                    boolean liveWithUser = (boolean) personJSON.get(USER_IS_LIVEWITHUSER);
+                    accountList.add(new Account(name, password, isManager, liveWithUser));
                 }
             }
 

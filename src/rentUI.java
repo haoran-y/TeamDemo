@@ -105,13 +105,20 @@ public class rentUI {
 		userInfo[1] = password;
 		System.out.println("are you a property manager?(y for yes and n for no)");
 		boolean isPropertyManager;
+		boolean liveWithOtherUser = false;
 		userInfo[2] = scanner.nextLine();
-		if (userInfo[2].toLowerCase().equals("y"))
+		if (userInfo[2].toLowerCase().equals("y")) {
 			isPropertyManager = true;
-		else
+		} else {
 			isPropertyManager = false;
+			System.out.println("Do you want to live with other website users?(1 for yes and 0 for no)");
+			String answer = scanner.nextLine();
+			if (answer.equals("1")) {
+				liveWithOtherUser = true;
+			}
+		}
 		System.out.println("Registration complete");
-		Account newAccount = new Account(userInfo[0], userInfo[1], isPropertyManager);
+		Account newAccount = new Account(userInfo[0], userInfo[1], isPropertyManager, liveWithOtherUser);
 		accounts.addUser(newAccount);
 		account = newAccount;
 	}
@@ -171,11 +178,11 @@ public class rentUI {
 		ShowSearchResult(filterSetting);
 	}
 	private void ShowSearchResult(int[] filterSetting)  {
-		ArrayList<Listing> matchedLists = new ArrayList<Listing>();
+		ArrayList<Listing> matchedLists = listings.search(filterSetting);
 		//matchedLists.add(new Listing("test1", "test address", "29201", 2, 1, 1,1445.90)); //fot test purpose, just ignore it
 		int i = 1;
 		System.out.println("According to your filter, we have found those apartments");
-		for (Listing apartment:listings.search(filterSetting)) {
+		for (Listing apartment:matchedLists) {
 			System.out.println(i+"  "+apartment);
 			matchedLists.add(apartment);
 			i+=1;
@@ -185,7 +192,7 @@ public class rentUI {
 		int pickedNum = scanner.nextInt();
 		if(account == null) {
 			System.out.println("You haven't sign in yet, do you want to sign in or register an account?" +
-					"(press 1 to sign in and 0 to register)");
+					"(enter 1 to sign in and 0 to register)");
 			int opCode = scanner.nextInt();
 			switch (opCode){
 				case 0:

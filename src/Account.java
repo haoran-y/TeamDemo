@@ -1,12 +1,17 @@
+import java.util.Scanner;
+
 public class Account {
+
 	private String name;
 	private boolean isPropertyManager;
 	private String password;
+	private boolean liveWithOtherUser;
 
-		public Account(String name, String password, boolean isPropertyManager) {
+	public Account(String name, String password, boolean isPropertyManager, boolean liveWithOtherUser) {
 		this.name = name;
 		this.password = password;
 		this.isPropertyManager = isPropertyManager;
+		this.liveWithOtherUser = liveWithOtherUser;
 	}
 
 	public String getName() {
@@ -31,6 +36,14 @@ public class Account {
 
 	public void setPropertyManager(boolean propertyManager) {
 		isPropertyManager = propertyManager;
+	}
+
+	public boolean isLiveWithOtherUser() {
+		return liveWithOtherUser;
+	}
+
+	public void setLiveWithOtherUser(boolean liveWithOtherUser) {
+		this.liveWithOtherUser = liveWithOtherUser;
 	}
 
 	public String toString() {
