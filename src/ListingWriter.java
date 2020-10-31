@@ -1,5 +1,3 @@
-//package CSCE247Porject;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,8 +5,15 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * listings writer
+ * @author LIMA group
+ */
 public class ListingWriter extends ListingConstant {
 
+    /**
+     * write listings to json
+     */
     public static void saveListing() {
         Listings lists = Listings.getInstance();
         ArrayList<Listing> listingList = lists.getListingList();
@@ -28,6 +33,11 @@ public class ListingWriter extends ListingConstant {
         }
     }
 
+    /**
+     * get jsonObject from listing object
+     * @param listing - listing object to be converted
+     * @return - the jsonObject created
+     */
     public static JSONObject getListingJSON(Listing listing) {
         JSONObject listingDetails = new JSONObject();
         listingDetails.put(LISTING_NAME, listing.getName());

@@ -5,8 +5,15 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * Account writer class writes accounts to json
+ * @author LIMA group
+ */
 public class AccountWriter extends AccountConstant {
 
+    /**
+     * save users into json
+     */
     public static void saveUser() {
         Accounts accounts = Accounts.getInstance();
         ArrayList<Account> accountList = accounts.getUser();
@@ -28,6 +35,11 @@ public class AccountWriter extends AccountConstant {
         }
     }
 
+    /**
+     * create a jsonObject to save
+     * @param account - account to be saved
+     * @return - jsonObject that can be stored in json
+     */
     public static JSONObject getUserJSON(Account account) {
         JSONObject userDetails = new JSONObject();
         userDetails.put(USER_USERNAME, account.getName());

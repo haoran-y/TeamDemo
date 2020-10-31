@@ -1,4 +1,6 @@
-//package CSCE247Porject;
+/**
+ * constants for listing json
+ */
 public abstract class ListingConstant {
 
     protected static final String LISTING_FILE_NAME = "data/listing.json";

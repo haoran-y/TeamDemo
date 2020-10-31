@@ -2,6 +2,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * main UI class
+ * @author LIMA group
+ */
 public class rentUI {
 
 	private static final String WelcomeMessage = "Welcome to the rent system for off campus housing!";
@@ -13,6 +17,9 @@ public class rentUI {
 	private Listings listings;
 	private Account account;
 
+	/**
+	 * constructor for rentUI
+	 */
 	rentUI() {
 		scanner = new Scanner(System.in);
 		accounts = accounts.getInstance();
@@ -20,6 +27,9 @@ public class rentUI {
 		account = null;
 	}
 
+	/**
+	 * run method looping the main interface
+	 */
 	public void run() {
 
 		while (true) {
@@ -47,6 +57,9 @@ public class rentUI {
 
 	}
 
+	/**
+	 * displaying main menu
+	 */
 	private void displayMainMenu() {
 		System.out.println(WelcomeMessage);
 		System.out.println("\n************ Main Menu *************");
@@ -56,6 +69,11 @@ public class rentUI {
 		System.out.println("\n");
 	}
 
+	/**
+	 * getting user input
+	 * @param numCommands
+	 * @return
+	 */
 	private int getUserCommand(int numCommands) {
 		System.out.print("What would you like to do?: ");
 
@@ -67,6 +85,9 @@ public class rentUI {
 		return -1;
 	}
 
+	/**
+	 * ask for user input of username and password, to match users in database
+	 */
 	private void Login() {
 		scanner.nextLine();
 		String userInfo[] = new String[2];
@@ -84,7 +105,9 @@ public class rentUI {
 		}
 	}
 
-
+	/**
+	 * register a new user
+	 */
 	private void Register() {
 		scanner.nextLine();
 		String userInfo[] = new String[3];
@@ -123,8 +146,11 @@ public class rentUI {
 		account = newAccount;
 	}
 
+	/**
+	 * search for listings
+	 */
 	private void SearchHouse() {
-		int filterSetting[] = new int[searchFilter.length];
+		int filterSetting[] = new int[] {-1, -1, -1, -1, -1, -1, -1, -1, -1};
 		upperloop:
 		while (true) {
 			System.out.println("\n************Filters *************");
@@ -177,6 +203,11 @@ public class rentUI {
 		}
 		ShowSearchResult(filterSetting);
 	}
+
+	/**
+	 * display search result
+	 * @param filterSetting
+	 */
 	private void ShowSearchResult(int[] filterSetting)  {
 		ArrayList<Listing> matchedLists = listings.search(filterSetting);
 		//matchedLists.add(new Listing("test1", "test address", "29201", 2, 1, 1,1445.90)); //fot test purpose, just ignore it
@@ -220,11 +251,19 @@ public class rentUI {
 				System.out.println(e);
 			}
 	}
+
+	/**
+	 * logout
+	 */
 	private void Logout() {
 		System.out.println("Bye");
 		System.exit(0);
 	}
 
+	/**
+	 * main method
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		rentUI rentUI = new rentUI();
 		//rentUI.ShowSearchResult(null); // use for test, you can ignore it

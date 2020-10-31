@@ -1,3 +1,7 @@
+/**
+ * constants for account management json
+ * @author LIMA group
+ */
 public abstract class AccountConstant {
 
     protected static final String USER_FILE_NAME = "data/user.json";

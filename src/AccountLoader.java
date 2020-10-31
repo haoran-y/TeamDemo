@@ -5,8 +5,16 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+/**
+ * Account loader class loading accounts from json
+ * @author LIMA group
+ */
 public class AccountLoader extends AccountConstant {
 
+    /**
+     * load data from json
+     * @return - arraylist of users current in database
+     */
     public static ArrayList<Account> loadUsers() {
         ArrayList<Account> accountList = new ArrayList<Account>();
 

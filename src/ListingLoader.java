@@ -1,4 +1,3 @@
-
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -6,8 +5,16 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+/**
+ * Listing loader
+ * @author LIMA group
+ */
 public class ListingLoader extends ListingConstant {
 
+    /**
+     * load all listings in json
+     * @return - arraylist of all listings
+     */
     public static ArrayList<Listing> loadListings() {
 
         ArrayList<Listing> listingList= new ArrayList<Listing>();

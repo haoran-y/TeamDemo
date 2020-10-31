@@ -5,33 +5,57 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+/**
+ * listings management class
+ * @author LIMA group
+ */
 public class Listings{
 
 	private static Listings listings;
     private static ArrayList<Listing> listingList = new ArrayList<Listing>();
-	
-    private Listings() {
+
+	/**
+	 * constructor, read listings from json
+	 */
+	private Listings() {
     	listingList = ListingLoader.loadListings();
     }
 
-    public static Listings getInstance() {
+	/**
+	 * get the current listings
+	 * @return - instance of listings class
+	 */
+	public static Listings getInstance() {
         if (listings == null) {
             listings = new Listings();
         }
         return listings;
     }
 
-    public static ArrayList<Listing> getListingList() {
+	/**
+	 * return the current listing list
+	 * @return - arraylist of listings
+	 */
+	public static ArrayList<Listing> getListingList() {
         return listingList;
     }
 
-    public void addListing(Listing listing) {
+	/**
+	 * add a listing into listings list
+	 * @param listing - listing to be added
+	 */
+	public void addListing(Listing listing) {
         listingList.add(listing);
         ListingWriter.saveListing();
     }
 
 
-    public static ArrayList<Listing> search(int[] filterSetting) {
+	/**
+	 * search for matched listing in the list
+	 * @param filterSetting - filters to be searched
+	 * @return matched list
+	 */
+	public static ArrayList<Listing> search(int[] filterSetting) {
 		//about filterSetting
 		//0		bedroom number
 		//1		washroom number
@@ -52,6 +76,12 @@ public class Listings{
 		return match;
 	}
 
+	/**
+	 * sign a contract
+	 * @param selected - listing to be signed
+	 * @param account - user who is signing it
+	 * @throws IOException - for filr output
+	 */
     public static void sign(Listing selected, Account account) throws IOException {
 
 		String DAMAGE_COST = "$150";

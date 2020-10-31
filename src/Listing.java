@@ -1,3 +1,7 @@
+/**
+ * Listing object
+ * @author LIMA group
+ */
 public class Listing {
 
     private String name;
@@ -44,12 +48,21 @@ public class Listing {
         isPetFriendly = false;
     }
 
+    /**
+     * return an integer array for searching
+     * @return
+     */
     public int[] getSearchFilter (){
         return new int[] {numBedroom, numBathroom, booleanToInt(isPetFriendly), booleanToInt(hasWasherDryer),
          booleanToInt(isFurnished), booleanToInt(walkToCampus), booleanToInt(hasWifi), booleanToInt(hasPool),
                 booleanToInt(hasGym)};
     }
 
+    /**
+     * convert boolean to int for the search
+     * @param a
+     * @return
+     */
     public int booleanToInt (boolean a) {
         if (a) {
             return 1;
@@ -58,6 +71,9 @@ public class Listing {
         }
     }
 
+    /**
+     * getters and setters
+     */
     public void setName(String name) {
         this.name = name;
     }
