@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class rentUI {
 
 	private static final String WelcomeMessage = "Welcome to the rent system for off campus housing!";
-	private String[] options = {"Login", "Register", "Search House", "Logout"};
+	private String[] options = {"Login", "Register", "Search House", "Property Management", "Logout"};
 	private String[] searchFilter = {"bedroom number","WashRoom number", "pet friendly", "washer and dryer",
 			"furnished", "walk to campus", "free wifi", "swimming pool", "gym"};
 	private Scanner scanner;
@@ -49,7 +49,13 @@ public class rentUI {
 					SearchHouse();
 					break;
 				case (4):
+					propertyManage();
+					break;
+				case (5):
 					Logout();
+					break;
+				default:
+					System.out.println("Option not available, try again.");
 					break;
 			}
 
@@ -77,8 +83,9 @@ public class rentUI {
 	private int getUserCommand(int numCommands) {
 		System.out.print("What would you like to do?: ");
 
-		String input = scanner.nextLine();
-		int command = Integer.parseInt(input) - 1;
+		//String input = scanner.nextLine();
+		//int command = Integer.parseInt(input) - 1;
+		int command = scanner.nextInt() - 1;
 
 		if (command >= 0 && command <= numCommands - 1) return command + 1;
 
@@ -93,7 +100,7 @@ public class rentUI {
 		String userInfo[] = new String[2];
 		System.out.println("Enter username: ");
 		userInfo[0] = scanner.nextLine();
-		scanner.nextLine();
+		//scanner.nextLine();
 		System.out.println("Enter password: ");
 		userInfo[1] = scanner.nextLine();
 		Account temp = accounts.check(userInfo[0], userInfo[1]);
@@ -113,7 +120,14 @@ public class rentUI {
 		String userInfo[] = new String[3];
 		System.out.println("Enter your name:");
 		userInfo[0] = scanner.nextLine();
-
+		while (true) {
+			if (accounts.checkRepeat(userInfo[0])) {
+				break;
+			} else {
+				System.out.println("Username taken, please enter a new one!");
+				userInfo[0] = scanner.nextLine();
+			}
+		}
 		System.out.println("Enter password: ");
 		System.out.println("Your password must have a minimum of 8 characters\n"
 				+ "Your password must contain at least one letter and one digit: ");
@@ -230,7 +244,7 @@ public class rentUI {
 			}
 		}
 		//System.out.println(matchedLists.get(0)); // for test purpose, just ignore it
-		System.out.println("Please pick up the one you would like to sign");
+		System.out.println("Please pick up the one you would like to sign, 0 to back to main menu");
 		int pickedNum = scanner.nextInt();
 		if(account == null) {
 			System.out.println("You haven't sign in yet, do you want to sign in or register an account?" +
@@ -245,11 +259,78 @@ public class rentUI {
 					break;
 			}
 		}
-			try {
-				Listings.sign(matchedLists.get(pickedNum - 1), account);
-			} catch (IOException e) {
-				System.out.println(e);
+		if (pickedNum == 0) {
+			return;
+		}
+		try {
+			Listings.sign(matchedLists.get(pickedNum - 1), account);
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	/**
+	 * propertyManage method for managers to add listing
+	 */
+	private void propertyManage() {
+		if (account == null || !account.isPropertyManager()) {
+			System.out.println("You are not logged in or not a property manager. Back to main menu!");
+		} else {
+			while (true) {
+				System.out.println("\n***** Property Manage *****\n1. add property\n\nenter option:");
+				if (scanner.nextInt() == 1) {
+					scanner.nextLine();
+					System.out.println("Enter the name of the property:");
+					String name = scanner.nextLine();
+					System.out.println("Enter the address of the property:");
+					String address = scanner.nextLine();
+					System.out.println("Enter the ZIP of the property:");
+					String ZIP = scanner.nextLine();
+					System.out.println("Enter the number of bedroom of the property:");
+					int numBedroom = scanner.nextInt();
+					System.out.println("Enter the number of bathroom of the property:");
+					int numBathroom = scanner.nextInt();
+					System.out.println("Enter the number of availability of the property:");
+					int numAvail = scanner.nextInt();
+					System.out.println("Enter the price of the property:");
+					double price = scanner.nextDouble();
+					Listing newListing = new Listing(name, address, ZIP, numBedroom, numBathroom, numAvail, price);
+					System.out.println("Is it a walk to campus property? (1 for yes and 0 for no)");
+					if(scanner.nextInt() == 1) {
+						newListing.setWalkToCampus(true);
+					}
+					System.out.println("Does it have washer and dryer? (1 for yes and 0 for no)");
+					if(scanner.nextInt() == 1) {
+						newListing.setHasWasherDryer(true);
+					}
+					System.out.println("Does it have gym? (1 for yes and 0 for no)");
+					if(scanner.nextInt() == 1) {
+						newListing.setHasGym(true);
+					}
+					System.out.println("Does it have pool? (1 for yes and 0 for no)");
+					if(scanner.nextInt() == 1) {
+						newListing.setHasPool(true);
+					}
+					System.out.println("Does it have WiFi? (1 for yes and 0 for no)");
+					if(scanner.nextInt() == 1) {
+						newListing.setHasWifi(true);
+					}
+					System.out.println("Is it furnished? (1 for yes and 0 for no)");
+					if(scanner.nextInt() == 1) {
+						newListing.setFurnished(true);
+					}
+					System.out.println("Is it pet friendly? (1 for yes and 0 for no)");
+					if(scanner.nextInt() == 1) {
+						newListing.setPetFriendly(true);
+					}
+					listings.addListing(newListing);
+					System.out.println("Listing create successfully!");
+					break;
+				} else {
+					System.out.println("Option not available! try again.");
+				}
 			}
+		}
 	}
 
 	/**

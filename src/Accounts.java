@@ -66,6 +66,20 @@ public class Accounts {
 		return null;
 	}
 
+	/**
+	 * check for repeated username
+	 * @param newUserName
+	 * @return
+	 */
+	public boolean checkRepeat(String newUserName) {
+		for (Account i : accountList) {
+			if (i.getName().equals(newUserName)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	@Override
 	public String toString() {
 		String output = "";
