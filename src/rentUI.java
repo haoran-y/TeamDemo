@@ -324,7 +324,8 @@ public class rentUI {
 						newListing.setPetFriendly(true);
 					}
 					listings.addListing(newListing);
-					System.out.println("Listing create successfully!");
+					System.out.println("Listing create successfully!\n");
+					System.out.println(newListing + "\n");
 					break;
 				} else {
 					System.out.println("Option not available! try again.");
