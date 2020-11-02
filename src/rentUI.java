@@ -233,7 +233,7 @@ public class rentUI {
 		}
 		whileloop:
 		while (true) {
-			System.out.println("Choose the one to show detail, 0 to exit.");
+			System.out.println("Choose the property to show details, 0 to exit.");
 			int selection = scanner.nextInt();
 			if (selection == 0) {
 				break whileloop;
@@ -248,7 +248,7 @@ public class rentUI {
 		int pickedNum = scanner.nextInt();
 		if(account == null) {
 			System.out.println("You haven't signed in yet, do you want to sign in or register an account?" +
-					"(enter 1 to sign in and 0 to register)");
+					" (enter 1 to sign in and 0 to register)");
 			int opCode = scanner.nextInt();
 			switch (opCode){
 				case 0:

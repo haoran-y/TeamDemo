@@ -191,7 +191,7 @@ public class Listing {
                 "\nNumber of Bedrooms: "+this.numBedroom+" " +
                 "\nNumber of Bathrooms: "+this.numBathroom+
                 "\nAvailabilities: "+this.numAvail+
-                "\nPrice: "+this.price+
+                "\nPrice: $"+this.price+
                 "\nAddress: "+this.address+
                 "\nZIP Code: "+this.ZIP +
                 "\nWalk to Campus: "+this.walkToCampus +
