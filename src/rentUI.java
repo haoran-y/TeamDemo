@@ -10,7 +10,7 @@ public class rentUI {
 
 	private static final String WelcomeMessage = "Welcome to the rent system for off campus housing!";
 	private String[] options = {"Login", "Register", "Search House", "Property Management", "Logout"};
-	private String[] searchFilter = {"Bedroom number","WashRoom number", "Pet friendly", "Washer and dryer",
+	private String[] searchFilter = {"Bedroom number","BathRoom number", "Pet friendly", "Washer and dryer",
 			"Furnished", "Walk to campus", "Free wifi", "Swimming pool", "Gym"};
 	private Scanner scanner;
 	private Accounts accounts;
