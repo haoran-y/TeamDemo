@@ -22,7 +22,7 @@ public class rentUI {
 	 */
 	rentUI() {
 		scanner = new Scanner(System.in);
-		accounts = accounts.getInstance();
+		accounts = Accounts.getInstance();
 		listings = Listings.getInstance();
 		account = null;
 	}
