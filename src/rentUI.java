@@ -148,11 +148,6 @@ public class rentUI {
 			isPropertyManager = true;
 		} else {
 			isPropertyManager = false;
-			System.out.println("Do you want to live with other website users?(1 for yes and 0 for no)");
-			String answer = scanner.nextLine();
-			if (answer.equals("1")) {
-				liveWithOtherUser = true;
-			}
 		}
 		System.out.println("Registration complete");
 		Account newAccount = new Account(userInfo[0], userInfo[1], isPropertyManager, liveWithOtherUser);
@@ -258,6 +253,11 @@ public class rentUI {
 					Login();
 					break;
 			}
+		}
+		System.out.println("Do you want to live with other website users?(1 for yes and 0 for no)");
+		String answer = scanner.nextLine();
+		if (answer.equals("1")) {
+			account.setLiveWithOtherUser(true);
 		}
 		if (pickedNum == 0) {
 			return;
