@@ -263,6 +263,7 @@ public class rentUI {
 		if (pickedNum == 0) {
 			return;
 		}
+		System.out.println("\n*********************************************\n");
 		try {
 			Listings.sign(matchedLists.get(pickedNum - 1), account);
 		} catch (IOException e) {
