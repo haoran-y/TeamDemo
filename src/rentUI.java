@@ -255,6 +255,7 @@ public class rentUI {
 			}
 		}
 		System.out.println("Do you want to live with other website users?(1 for yes and 0 for no)");
+		scanner.nextLine();
 		String answer = scanner.nextLine();
 		if (answer.equals("1")) {
 			account.setLiveWithOtherUser(true);
