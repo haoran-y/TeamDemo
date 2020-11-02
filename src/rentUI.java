@@ -22,7 +22,7 @@ public class rentUI {
 	 */
 	rentUI() {
 		scanner = new Scanner(System.in);
-		accounts = accounts.getInstance();
+		accounts = Accounts.getInstance();
 		listings = Listings.getInstance();
 		account = null;
 	}
@@ -167,7 +167,7 @@ public class rentUI {
 		int filterSetting[] = new int[] {-1, -1, -1, -1, -1, -1, -1, -1, -1};
 		upperloop:
 		while (true) {
-			System.out.println("\n************Filters *************");
+			System.out.println("\n************ Filters *************");
 			for (int i = 0; i < searchFilter.length; i++) {
 				System.out.println((i + 1) + ". " + searchFilter[i]);
 			}
@@ -179,35 +179,35 @@ public class rentUI {
 					filterSetting[0] = scanner.nextInt();
 					break;
 				case (2):
-					System.out.println("How many washrooms would you like"); //numbers
+					System.out.println("How many washrooms would you like?"); //numbers
 					filterSetting[1] = scanner.nextInt();
 					break;
 				case (3):
-					System.out.println("Do you want your apartment pet friendly?(1 for yes and 0 for no)"); //boolean
+					System.out.println("Do you want a pet friendly apartment? (1 for yes and 0 for no)"); //boolean
 					filterSetting[2] = scanner.nextInt();
 					break;
 				case (4):
-					System.out.println("Do you need washer and dryer?"); //boolean
+					System.out.println("Do you need a washer and dryer? (1 for yes and 0 for no)"); //boolean
 					filterSetting[3] = scanner.nextInt();
 					break;
 				case (5):
-					System.out.println("Do you need your apartment furnished?"); //boolean
+					System.out.println("Do you need a furnished apartment? (1 for yes and 0 for no)"); //boolean
 					filterSetting[4] = scanner.nextInt();
 					break;
 				case (6):
-					System.out.println("Do you prefer walk to campus apartment?"); //boolean
+					System.out.println("Do you prefer walk to campus apartment? (1 for yes and 0 for no)"); //boolean
 					filterSetting[5] = scanner.nextInt();
 					break;
 				case (7):
-					System.out.println("Do you need free wifi?"); //boolean
+					System.out.println("Do you need WiFi? (1 for yes and 0 for no)"); //boolean
 					filterSetting[6] = scanner.nextInt();
 					break;
 				case (8):
-					System.out.println("Do you need swimming pool?"); //boolean
+					System.out.println("Do you need a swimming pool? (1 for yes and 0 for no)"); //boolean
 					filterSetting[7] = scanner.nextInt();
 					break;
 				case (9):
-					System.out.println("Do you need gym?"); //boolean
+					System.out.println("Do you need gym? (1 for yes and 0 for no)"); //boolean
 					filterSetting[8] = scanner.nextInt();
 					break;
 				case (10):
@@ -247,7 +247,7 @@ public class rentUI {
 		System.out.println("Please pick up the one you would like to sign, 0 to back to main menu");
 		int pickedNum = scanner.nextInt();
 		if(account == null) {
-			System.out.println("You haven't sign in yet, do you want to sign in or register an account?" +
+			System.out.println("You haven't signed in yet, do you want to sign in or register an account?" +
 					"(enter 1 to sign in and 0 to register)");
 			int opCode = scanner.nextInt();
 			switch (opCode){
@@ -274,23 +274,23 @@ public class rentUI {
 	 */
 	private void propertyManage() {
 		if (account == null || !account.isPropertyManager()) {
-			System.out.println("You are not logged in or not a property manager. Back to main menu!");
+			System.out.println("You are not logged in or you are not a property manager. Back to main menu!");
 		} else {
 			while (true) {
-				System.out.println("\n***** Property Manage *****\n1. add property\n\nenter option:");
+				System.out.println("\n***** Property Manager *****\n1. add property\n\nenter option:");
 				if (scanner.nextInt() == 1) {
 					scanner.nextLine();
 					System.out.println("Enter the name of the property:");
 					String name = scanner.nextLine();
 					System.out.println("Enter the address of the property:");
 					String address = scanner.nextLine();
-					System.out.println("Enter the ZIP of the property:");
+					System.out.println("Enter the ZIP code of the property:");
 					String ZIP = scanner.nextLine();
-					System.out.println("Enter the number of bedroom of the property:");
+					System.out.println("Enter the number of bedrooms for the property:");
 					int numBedroom = scanner.nextInt();
-					System.out.println("Enter the number of bathroom of the property:");
+					System.out.println("Enter the number of bathrooms for the property:");
 					int numBathroom = scanner.nextInt();
-					System.out.println("Enter the number of availability of the property:");
+					System.out.println("Enter the number of availabilities for the property:");
 					int numAvail = scanner.nextInt();
 					System.out.println("Enter the price of the property:");
 					double price = scanner.nextDouble();
@@ -299,15 +299,15 @@ public class rentUI {
 					if(scanner.nextInt() == 1) {
 						newListing.setWalkToCampus(true);
 					}
-					System.out.println("Does it have washer and dryer? (1 for yes and 0 for no)");
+					System.out.println("Does it have a washer and dryer? (1 for yes and 0 for no)");
 					if(scanner.nextInt() == 1) {
 						newListing.setHasWasherDryer(true);
 					}
-					System.out.println("Does it have gym? (1 for yes and 0 for no)");
+					System.out.println("Does it have a gym? (1 for yes and 0 for no)");
 					if(scanner.nextInt() == 1) {
 						newListing.setHasGym(true);
 					}
-					System.out.println("Does it have pool? (1 for yes and 0 for no)");
+					System.out.println("Does it have a pool? (1 for yes and 0 for no)");
 					if(scanner.nextInt() == 1) {
 						newListing.setHasPool(true);
 					}

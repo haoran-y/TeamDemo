@@ -186,10 +186,21 @@ public class Listing {
         this.ZIP = ZIP;
     }
     public String toString(){
-        return "name: "+this.name+" bedroom numbers: "+this.numBedroom+" bathroom numbers: "+this.numBathroom+
-                " number that available "+this.numAvail+" price "+this.price+" address: "+this.address+" ZIP: "+
-                this.ZIP +" walk to campus "+this.walkToCampus +" has washer and dryer: "+this.hasWasherDryer+
-                " has gym: "+this.hasGym+" has pool: "+this.hasPool+" has wifi: "+this.hasWifi+ " furnished: "+
-                this.isFurnished+" pet friendly: "+this.isPetFriendly;
+        return "************* Property Details *************" +
+                "\nProperty Name: "+this.name+" " +
+                "\nNumber of Bedrooms: "+this.numBedroom+" " +
+                "\nNumber of Bathrooms: "+this.numBathroom+
+                "\nAvailabilities: "+this.numAvail+
+                "\nPrice: "+this.price+
+                "\nAddress: "+this.address+
+                "\nZIP Code: "+this.ZIP +
+                "\nWalk to Campus: "+this.walkToCampus +
+                "\nHas a Washer and Dryer: "+this.hasWasherDryer+
+                "\nHas a Gym: "+this.hasGym+
+                "\nHas a pool: "+this.hasPool+
+                "\nHas WiFi: "+this.hasWifi+
+                "\nIs Furnished: "+this.isFurnished+
+                "\nIs Pet Friendly: "+this.isPetFriendly+
+                "\n*********************************************\n";
     }
 }
