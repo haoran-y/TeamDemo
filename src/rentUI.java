@@ -140,7 +140,7 @@ public class rentUI {
 			}
 		}
 		userInfo[1] = password;
-		System.out.println("are you a property manager?(y for yes and n for no)");
+		System.out.println("Are you a property manager?(y for yes and n for no)");
 		boolean isPropertyManager;
 		boolean liveWithOtherUser = false;
 		userInfo[2] = scanner.nextLine();
@@ -174,7 +174,7 @@ public class rentUI {
 					filterSetting[0] = scanner.nextInt();
 					break;
 				case (2):
-					System.out.println("How many washrooms would you like?"); //numbers
+					System.out.println("How many bathrooms would you like?"); //numbers
 					filterSetting[1] = scanner.nextInt();
 					break;
 				case (3):
@@ -190,7 +190,7 @@ public class rentUI {
 					filterSetting[4] = scanner.nextInt();
 					break;
 				case (6):
-					System.out.println("Do you prefer walk to campus apartment? (1 for yes and 0 for no)"); //boolean
+					System.out.println("Do you prefer to walk to campus apartments? (1 for yes and 0 for no)"); //boolean
 					filterSetting[5] = scanner.nextInt();
 					break;
 				case (7):
@@ -202,7 +202,7 @@ public class rentUI {
 					filterSetting[7] = scanner.nextInt();
 					break;
 				case (9):
-					System.out.println("Do you need gym? (1 for yes and 0 for no)"); //boolean
+					System.out.println("Do you need a gym? (1 for yes and 0 for no)"); //boolean
 					filterSetting[8] = scanner.nextInt();
 					break;
 				case (10):
