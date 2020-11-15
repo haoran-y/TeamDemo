@@ -36,4 +36,5 @@ public class AccountLoaderTest {
         accountList = AccountLoader.loadUsers();
         assertEquals("van",accountList.get(0).getName());
     }
+
 }

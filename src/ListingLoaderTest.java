@@ -44,4 +44,24 @@ public class ListingLoaderTest {
         listingList = ListingLoader.loadListings();
         assertEquals(1145.14,listingList.get(0).getPrice());
     }
+    @Test
+    void testGetFirstListingAddress(){
+        listingList = ListingLoader.loadListings();
+        assertEquals("114514 random",listingList.get(0).getAddress());
+    }
+    @Test
+    void testGetFirstListingZip(){
+        listingList = ListingLoader.loadListings();
+        assertEquals("29201",listingList.get(0).getZIP());
+    }
+    @Test
+    void testGetFirstListingNumBedroom(){
+        listingList = ListingLoader.loadListings();
+        assertEquals(2,listingList.get(0).getNumBedroom());
+    }
+    @Test
+    void testGetFirstListingNumBathroom(){
+        listingList = ListingLoader.loadListings();
+        assertEquals(2,listingList.get(0).getNumBathroom());
+    }
 }
