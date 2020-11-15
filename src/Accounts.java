@@ -72,6 +72,7 @@ public class Accounts {
 	 * @return
 	 */
 	public boolean checkRepeat(String newUserName) {
+
 		for (Account i : accountList) {
 			if (i.getName().equals(newUserName)) {
 				return false;

@@ -29,4 +29,11 @@ public class ListingsTest {
         ArrayList<Listing> match = listings.search(filterSetting);
         assertEquals(listingList.get(0),match.get(0));
     }
+    @Test
+    void testAddListing(){
+        listings.addListing(new Listing("testUnit","testAddress","29201",2,
+                2,1,810.45));
+        ListingWriter.saveListing();
+        assertEquals(3, listingList.size());
+    }
 }

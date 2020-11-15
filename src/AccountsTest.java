@@ -40,13 +40,18 @@ public class AccountsTest {
         assertNull(jsmith);
     }
     @Test
-    void testFindRepeat() {
+    void testFindRepeatFalse() {
         accountList.clear();
         accountList.add(new Account("van","van12345",false,true));
         accountList.add(new Account("van","van123456",false,true));
         AccountWriter.saveUser();
         boolean notRepeat = accounts.checkRepeat("van");
         assertFalse(notRepeat);
+    }
+    @Test
+    void testFindRepeatTrue() {
+        boolean notRepeat = accounts.checkRepeat("van");
+        assertTrue(notRepeat);
     }
     @Test
     void testToString() {
@@ -66,6 +71,13 @@ public class AccountsTest {
         AccountWriter.saveUser();
         Account xie = accounts.check("xie","xie12345");
         assertNotNull(xie);
+    }
+    @Test
+    void testCheckWrongPassword(){
+        accounts.addUser(new Account("xie","xzq12345",false,true));
+        AccountWriter.saveUser();
+        Account xie = accounts.check("xie","12345");
+        assertNull(xie);
     }
 
 
